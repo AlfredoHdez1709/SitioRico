@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block content%}
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+{%if form.errors%}
+
+{%else%}
+<div class="row col s12 center">
+<form class="col s12 center" action="{%url 'login'%}" method="post">
+	{%csrf_token%}
+	{{form.as_p}}
+	<input type="hidden" name="next" value="{{next}}">
+	<input class="waves-effect waves-light btn" type="submit" value="Iniciar Sesion">
+</form>
+<p class="flow-text center" >Si aun no tienes tu cuenta, creala <a href="{%url 'alta'%}">Aquí</p>
+</div>
+{%endif%}
+</body>
+</html>
+{%endblock content%}
