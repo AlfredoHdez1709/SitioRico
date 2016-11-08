@@ -1,8 +1,11 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
+
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+
 from .forms import RegistrationForm
+
 from .models import Perfil
 
 class PerfilView(View):
@@ -37,4 +40,3 @@ class Alta(View):
 			}
 			template_name = 'accounts/alta.html'
 			return render(request,template_name,context)
-# Create your views here.
